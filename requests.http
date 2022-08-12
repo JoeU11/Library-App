@@ -1,3 +1,5 @@
+@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjA0MzMwNTl9.iBHXSjitaj7NsalOCB0rpPC5uE4mteJVKFGOEJ0fmEQ
+
 get http://localhost:3000/books.json
 Content-Type: application/json
 
@@ -11,3 +13,28 @@ get http://localhost:3000/books/1.json
 
 ###
 get http://localhost:3000/categories.json
+
+
+###
+post http://localhost:3000/users.json
+Content-Type: application/json
+
+{
+  "name": "Nick Williams",
+  "email": "nick@nick.com",
+  "password": "password",
+  "authority": 0
+}
+
+
+###
+post http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "email": "nick@nick.com",
+  "password": "password"
+}
+
+###
+Authorization: Bearer {{user}}
