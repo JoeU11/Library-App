@@ -1,6 +1,11 @@
 class BooksController < ApplicationController
   def index
-    books = Book.all
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      books = category.books
+    else
+      books = Book.all
+    end
     render json: books
   end
 
