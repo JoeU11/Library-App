@@ -1,0 +1,8 @@
+{
+  id: @book.id,
+  title: @book.title,
+  author: @book.author,
+  categories: @book.categories, # add number currently available to rent later
+  created_at: @book.created_at,
+  updated_at: @book.updated_at
+}

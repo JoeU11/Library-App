@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   post "/users" => "users#create"
 
   post "/sessions" => "sessions#create"
+
+  get "/rented_books" => "rented_books#index" # change rented_books url to cart once working and add param for librarian to choose to see all
 end

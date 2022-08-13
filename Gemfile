@@ -21,6 +21,9 @@ gem 'jwt'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
+# Add jb to render template
+gem 'jb'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

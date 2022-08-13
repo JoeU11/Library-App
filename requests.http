@@ -1,4 +1,4 @@
-@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjA0MzMwNTl9.iBHXSjitaj7NsalOCB0rpPC5uE4mteJVKFGOEJ0fmEQ
+@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjA0MzU1NDZ9.vICTn5LSy3HCuHLA-24WGvLlj3DsQ08-NGsmPO32JqU
 
 get http://localhost:3000/books.json
 Content-Type: application/json
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ###
-get http://localhost:3000/books/1.json
+get http://localhost:3000/books/3.json
 
 
 ###
@@ -32,9 +32,13 @@ post http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "nick@nick.com",
+  "email": "john@john.com",
   "password": "password"
 }
 
 ###
+get http://localhost:3000/rented_books.json
+Content-Type: application/json
 Authorization: Bearer {{user}}
+
+
