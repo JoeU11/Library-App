@@ -3,16 +3,15 @@ class RentedBooksController < ApplicationController
   before_action :authenticate_user
   
   def index
-    if params[:show_cart?]
+    books = Array.new
+    if params[:cart?]
       cart = current_user.rented_books.where(status: "carted")
-      books = Array.new
       cart.each do |carted_book|
         book = carted_book.book
         books << book
       end
     elsif params[:current_rentals?]
       cart = current_user.rented_books.where(status: "rented")
-      books = Array.new
       cart.each do |carted_book|
         book = carted_book.book
         # book[:due_date] = # Finish after adding create rental action. Need field to be populated
@@ -20,12 +19,23 @@ class RentedBooksController < ApplicationController
       end
     elsif params[:previous_rentals?]
       cart = current_user.rented_books.where(status: "returned")
-      books = Array.new
       cart.each do |carted_book|
         book = carted_book.book
         books << book
       end
     end
     render json: books.as_json
+  end
+
+  def destroy
+    # change status to removed
+    rented_book = RentedBook.find_by(id: params[:id])
+    if current_user.id == rented_book.user_id && rented_book.status == "carted"
+      rented_book.status = "removed"
+      rented_book.save
+      render json: {message: "This book has been removed from your cart"}
+    else
+      render json: {}, status: :unauthorized
+    end
   end
 end

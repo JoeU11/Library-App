@@ -1,4 +1,4 @@
-@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjA0MzU1NDZ9.vICTn5LSy3HCuHLA-24WGvLlj3DsQ08-NGsmPO32JqU
+@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjA1MTQ1NjR9.CwL0GDADtfmFBOhg5_Ou6bDQiAgXGXmSANN24qlsJX8
 
 get http://localhost:3000/books.json
 Content-Type: application/json
@@ -44,3 +44,9 @@ Authorization: Bearer {{user}}
 {
   "current_rentals?": true
 }
+
+###
+DELETE http://localhost:3000/rented_books/1.json
+Authorization: Bearer {{user}}
+
+###
