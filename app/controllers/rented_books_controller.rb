@@ -15,6 +15,7 @@ class RentedBooksController < ApplicationController
       books = Array.new
       cart.each do |carted_book|
         book = carted_book.book
+        # book[:due_date] = # Finish after adding create rental action. Need field to be populated
         books << book
       end
     elsif params[:previous_rentals?]

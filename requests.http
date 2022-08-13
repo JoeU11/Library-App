@@ -42,5 +42,5 @@ Content-Type: application/json
 Authorization: Bearer {{user}}
 
 {
-  "previous_rentals?": true
+  "current_rentals?": true
 }
