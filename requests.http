@@ -36,9 +36,11 @@ Content-Type: application/json
   "password": "password"
 }
 
-###
+### show books in cart. URL will be changes to /cart
 get http://localhost:3000/rented_books.json
 Content-Type: application/json
 Authorization: Bearer {{user}}
 
-
+{
+  "previous_rentals?": true
+}
