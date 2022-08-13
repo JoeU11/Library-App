@@ -39,14 +39,20 @@ class RentedBooksController < ApplicationController
   end
 
   def create
-    # can also add condition that a user must not have any overdue books
-    current_rentals = current_user.rented_book.where(status: "rented")
-    if current_rentals.count < 3 # add condition that book must be available
-      rented_book = RentedBook.new(user_id: current_user.id, book_id: params[:book_id], status: "carted")
-      # rented_book.save
-      render json: rented_book.as_json
+    cart = current_user.rented_books.where(status: "carted")
+    book = Book.find_by(id: params[:book_id])
+    duplicate = false
+    cart.each do |carted_book|
+      if carted_book.book.title == book.title && carted_book.status == "carted"
+        duplicate = true
+      end
+    end
+    if duplicate
+      render json: {message: "You may only have one copy of a book in your cart at a time"}, status: :unauthorized
     else
-      render json: {message: "You may only have up to three books rented at a time"}
+      rented_book = RentedBook.new(user_id: current_user.id, book_id: params[:book_id], status: "carted")
+      rented_book.save
+      render json: rented_book.as_json
     end
   end
 end
