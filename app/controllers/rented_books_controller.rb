@@ -28,7 +28,6 @@ class RentedBooksController < ApplicationController
   end
 
   def destroy
-    # change status to removed
     rented_book = RentedBook.find_by(id: params[:id])
     if current_user.id == rented_book.user_id && rented_book.status == "carted"
       rented_book.status = "removed"
@@ -36,6 +35,18 @@ class RentedBooksController < ApplicationController
       render json: {message: "This book has been removed from your cart"}
     else
       render json: {}, status: :unauthorized
+    end
+  end
+
+  def create
+    # can also add condition that a user must not have any overdue books
+    current_rentals = current_user.rented_book.where(status: "rented")
+    if current_rentals.count < 3 # add condition that book must be available
+      rented_book = RentedBook.new(user_id: current_user.id, book_id: params[:book_id], status: "carted")
+      # rented_book.save
+      render json: rented_book.as_json
+    else
+      render json: {message: "You may only have up to three books rented at a time"}
     end
   end
 end

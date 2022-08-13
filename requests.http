@@ -50,3 +50,10 @@ DELETE http://localhost:3000/rented_books/1.json
 Authorization: Bearer {{user}}
 
 ###
+post http://localhost:3000/rented_books.json
+Content-Type: application/json
+Authorization: Bearer {{user}}
+
+{
+  "book_id": 1
+}

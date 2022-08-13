@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   get "/rented_books" => "rented_books#index" # change rented_books url to cart once working and add param for librarian to choose to see all
 
   delete "/rented_books/:id" => "rented_books#destroy"
+
+  post "/rented_books" => "rented_books#create"
 end
