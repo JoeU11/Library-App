@@ -42,7 +42,7 @@ Content-Type: application/json
 Authorization: Bearer {{user}}
 
 {
-  "current_rentals?": true
+  "rentals?": true
 }
 
 ###
@@ -55,5 +55,14 @@ Content-Type: application/json
 Authorization: Bearer {{user}}
 
 {
-  "book_id": 1
+  "book_id": 3
 }
+
+###
+post http://localhost:3000/rentals.json
+Authorization: Bearer {{user}}
+
+
+###
+
+
