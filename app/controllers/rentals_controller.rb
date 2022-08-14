@@ -28,8 +28,8 @@ class RentalsController < ApplicationController
           carted_book.book.available -= 1 
           carted_book.status = "rented"
           carted_book.due_date = rental.created_at.weeks_since(2)
-          # carted_book.save
-          # carted_book.book.save
+          carted_book.save
+          carted_book.book.save
         end
         render json: rental.as_json
       elsif !all_available && !already_rented
