@@ -16,7 +16,7 @@ class RentalsController < ApplicationController
         end
         rented_books.each do |rented_book|
           if carted_book.book_id == rented_book.book_id
-            already_rented = true #not working
+            already_rented = true
           end
         end
       end
