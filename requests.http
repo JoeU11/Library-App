@@ -1,4 +1,4 @@
-@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjA1MTQ1NjR9.CwL0GDADtfmFBOhg5_Ou6bDQiAgXGXmSANN24qlsJX8
+@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjEzNzIxNTl9.zcs42gTHr07_9STQOliYwy01h1QjUwpYv2yqGOBz_Ao
 
 get http://localhost:3000/books.json
 Content-Type: application/json
@@ -36,13 +36,13 @@ Content-Type: application/json
   "password": "password"
 }
 
-### show books in cart. URL will be changes to /cart
+### show books in cart. uses body params - cart?, rented?, or previous?
 get http://localhost:3000/rented_books.json
 Content-Type: application/json
 Authorization: Bearer {{user}}
 
 {
-  "rentals?": true
+  "rented?": true
 }
 
 ###

@@ -10,17 +10,17 @@ class RentedBooksController < ApplicationController
         book = carted_book.book
         books << book
       end
-    elsif params[:rentals?] #need to add overdue books as well
-      cart = current_user.rented_books.where(status: "rented")
-      cart.each do |carted_book|
-        book = carted_book.book
-        # book[:due_date] = # Finish after adding create rental action. Need field to be populated
+    elsif params[:rented?] #need to add overdue books as well
+      rentals = current_user.rented_books.where(status: "rented")
+      rentals.each do |rented_book|
+        book = rented_book.book
         books << book
+        books << rented_book.due_date
       end
     elsif params[:previous?]
-      cart = current_user.rented_books.where(status: "returned")
-      cart.each do |carted_book|
-        book = carted_book.book
+      returns = current_user.rented_books.where(status: "returned")
+      returns.each do |returned_book|
+        book = returned_book.book
         books << book
       end
     end
