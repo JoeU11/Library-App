@@ -1,4 +1,4 @@
-@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjEzNzIxNTl9.zcs42gTHr07_9STQOliYwy01h1QjUwpYv2yqGOBz_Ao
+@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjY4MDQ4Njl9.wy0-6W11Fb02bj8LDd1zcZ1Pkbu3FTk526jiBXTMAWI
 
 get http://localhost:3000/books.json
 Content-Type: application/json

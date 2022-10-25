@@ -1,8 +1,9 @@
 @books.map do |book|
   {
     id: book.id,
-    name: book.title,
+    title: book.title,
     author: book.author,
+    available: book.available,
     categories: book.categories, # add number availale to rent later
   }
 end
