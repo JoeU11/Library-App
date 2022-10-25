@@ -7,7 +7,7 @@ class RentalsController < ApplicationController
     overdue_books = current_user.rented_books.where(status: "overdue")
     if carted_books.count == 0
       render json: { message: "There is nothing in your cart" }, status: :unauthorized
-    elsif carted_books.count + rented_books.count + overdue_books.count < 3
+    elsif carted_books.count + rented_books.count + overdue_books.count <= 3
       all_available = true
       already_rented = false
       carted_books.each do |carted_book|

@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 @admin = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjY4MTQ3NjV9.V6LjO9tMpuBK8hDa7priNZ30QW30tLA5yy3AZPuVIlA
 
 @NotAdmin = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NjY4MTQ4ODJ9.dLfscnWZ51fnLVfYGPV6rlKJXpNHra4xlbVnzLx7AZk
+=======
+@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjY4MDQ4Njl9.wy0-6W11Fb02bj8LDd1zcZ1Pkbu3FTk526jiBXTMAWI
+>>>>>>> e334db1b7ba8e0e513fd05afebd7888602c4e787
 
 get http://localhost:3000/books.json
 Content-Type: application/json
@@ -52,14 +56,18 @@ Content-Type: application/json
   "password":"password"
 }
 
-### show books in cart. URL will be changes to /cart
+### show books in cart. uses body params - cart?, rented?, or previous?
 get http://localhost:3000/rented_books.json
 Content-Type: application/json
 Authorization: Bearer {{user}}
 
 {
+<<<<<<< HEAD
   "book_id": 1,
   "cart?": true
+=======
+  "rented?": true
+>>>>>>> e334db1b7ba8e0e513fd05afebd7888602c4e787
 }
 
 ###
