@@ -3,6 +3,7 @@
     id: book.id,
     name: book.title,
     author: book.author,
-    categories: book.categories, # add number availale to rent later
+    categories: book.categories, # add number availale to rent later --> Esther Added below
+    available: book.available,
   }
 end

@@ -1,4 +1,6 @@
-@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjA1MTQ1NjR9.CwL0GDADtfmFBOhg5_Ou6bDQiAgXGXmSANN24qlsJX8
+@admin = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjY4MTQ3NjV9.V6LjO9tMpuBK8hDa7priNZ30QW30tLA5yy3AZPuVIlA
+
+@NotAdmin = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NjY4MTQ4ODJ9.dLfscnWZ51fnLVfYGPV6rlKJXpNHra4xlbVnzLx7AZk
 
 get http://localhost:3000/books.json
 Content-Type: application/json
@@ -8,7 +10,21 @@ Content-Type: application/json
 }
 
 ###
-get http://localhost:3000/books/3.json
+get http://localhost:3000/books/2.json
+
+###
+# Books Post for Admin
+post http://localhost:3000/books.json
+Authorization: Bearer {{admin}}
+Content-Type: application/json
+
+{
+  "title": "Lost at Sea",
+  "stock": 100,
+  "author_id": 1,
+  "available": 100
+}
+
 
 
 ###
@@ -20,10 +36,10 @@ post http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "name": "Nick Williams",
-  "email": "nick@nick.com",
+  "name": "Sam",
+  "email": "sam@sam.com",
   "password": "password",
-  "authority": 0
+  "authority": false
 }
 
 
@@ -32,8 +48,8 @@ post http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "john@john.com",
-  "password": "password"
+  "email": "sam@sam.com",
+  "password":"password"
 }
 
 ### show books in cart. URL will be changes to /cart
@@ -42,7 +58,8 @@ Content-Type: application/json
 Authorization: Bearer {{user}}
 
 {
-  "rentals?": true
+  "book_id": 1,
+  "cart?": true
 }
 
 ###
@@ -55,14 +72,15 @@ Content-Type: application/json
 Authorization: Bearer {{user}}
 
 {
-  "book_id": 3
+  "book_id": 1
 }
 
 ###
 post http://localhost:3000/rentals.json
 Authorization: Bearer {{user}}
 
-
 ###
+
+
 
 

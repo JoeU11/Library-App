@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   get "/books" => "books#index"
+  post "/books" => "books#create"
   get "/books/:id" => "books#show"
-
 
   get "/categories" => "categories#index"
 
@@ -19,6 +19,4 @@ Rails.application.routes.draw do
   delete "/rented_books/:id" => "rented_books#destroy"
 
   post "/rented_books" => "rented_books#create"
-
-  post "rentals" => "rentals#create"
 end

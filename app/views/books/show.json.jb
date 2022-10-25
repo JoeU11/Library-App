@@ -3,6 +3,7 @@
   title: @book.title,
   author: @book.author,
   categories: @book.categories, # add number currently available to rent later
+  availble: @book.available,
   created_at: @book.created_at,
   updated_at: @book.updated_at
 }
