@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authenticate_admin, only: [:create]
+  before_action :authenticate_admin, only: [:create, :update, :destroy]
 
   def index
     if params[:category]
@@ -27,5 +27,21 @@ class BooksController < ApplicationController
     )
     book.save
     render json: book.as_json
+  end
+
+  def update
+    book = Book.find_by(id: params[:id])
+
+    book.stock = params[:stock] || book.stock
+    book.author_id = params[:author_id] || book.author_id
+    book.available = params[:available] || book.available
+    book.title = params[:title] || book.title
+
+    book.save
+    render json: book.as_json
+  end
+
+  def destroy
+    render json: { message: "hello_destroy" }
   end
 end

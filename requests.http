@@ -1,25 +1,20 @@
-<<<<<<< HEAD
-@admin = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjY4MTQ3NjV9.V6LjO9tMpuBK8hDa7priNZ30QW30tLA5yy3AZPuVIlA
-
-@NotAdmin = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NjY4MTQ4ODJ9.dLfscnWZ51fnLVfYGPV6rlKJXpNHra4xlbVnzLx7AZk
-=======
-@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjY4MDQ4Njl9.wy0-6W11Fb02bj8LDd1zcZ1Pkbu3FTk526jiBXTMAWI
->>>>>>> e334db1b7ba8e0e513fd05afebd7888602c4e787
+@Nick_Admin= eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjY4OTE0NzV9.SUveplA6etRJqpC_1p3kbhRcIpf19BkuIsFcJLsUe8E
+@sam_notadmin= eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NjY4ODkxOTF9.wCLQhRk8rBNW8uP1dWz-q7yNIphjvP0aZv3ZQQ3gr3E
 
 get http://localhost:3000/books.json
 Content-Type: application/json
 
 {
-  "category": "Fantasy"
+  
 }
 
 ###
 get http://localhost:3000/books/2.json
 
 ###
-# Books Post for Admin
+# Create Books Post for Admin
 post http://localhost:3000/books.json
-Authorization: Bearer {{admin}}
+Authorization: Bearer {{Nick_Admin}}
 Content-Type: application/json
 
 {
@@ -28,6 +23,25 @@ Content-Type: application/json
   "author_id": 1,
   "available": 100
 }
+
+###
+#Books Update for Admins
+PATCH http://localhost:3000/books/3.json
+Authorization: Bearer {{sam_notadmin}}
+Content-Type: application/json
+
+{
+  "stock": 100,
+  "author_id": 1,
+  "available": 3,
+  "title": "A Good Man is Hard To Find"
+}
+
+
+###
+#Delete Update for Admins
+DELETE http://localhost:3000/books/2.json
+
 
 
 
@@ -52,32 +66,28 @@ post http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "sam@sam.com",
+  "email": "nick@nick.com",
   "password":"password"
 }
 
 ### show books in cart. uses body params - cart?, rented?, or previous?
 get http://localhost:3000/rented_books.json
 Content-Type: application/json
-Authorization: Bearer {{user}}
+Authorization: Bearer 
 
 {
-<<<<<<< HEAD
   "book_id": 1,
   "cart?": true
-=======
-  "rented?": true
->>>>>>> e334db1b7ba8e0e513fd05afebd7888602c4e787
 }
 
 ###
 DELETE http://localhost:3000/rented_books/1.json
-Authorization: Bearer {{user}}
+Authorization: Bearer 
 
 ###
 post http://localhost:3000/rented_books.json
 Content-Type: application/json
-Authorization: Bearer {{user}}
+Authorization: Bearer 
 
 {
   "book_id": 1
@@ -85,7 +95,7 @@ Authorization: Bearer {{user}}
 
 ###
 post http://localhost:3000/rentals.json
-Authorization: Bearer {{user}}
+Authorization: Bearer 
 
 ###
 
