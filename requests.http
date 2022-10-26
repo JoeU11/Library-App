@@ -39,8 +39,10 @@ Content-Type: application/json
 
 
 ###
-#Delete Update for Admins
-DELETE http://localhost:3000/books/2.json
+#Delete for Admins
+DELETE http://localhost:3000/books/5.json
+Authorization: Bearer {{Nick_Admin}}
+
 
 
 

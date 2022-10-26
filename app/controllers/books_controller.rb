@@ -42,6 +42,10 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    render json: { message: "hello_destroy" }
+    book = Book.find_by(id: params[:id])
+
+    book.destroy
+
+    render json: { message: "You have removed #{book.title.as_json} from circulation at the Library" }
   end
 end
