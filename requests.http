@@ -1,4 +1,4 @@
-@Nick_Admin= eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjY4OTE0NzV9.SUveplA6etRJqpC_1p3kbhRcIpf19BkuIsFcJLsUe8E
+@Nick_Admin= eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjczMTk2NjZ9.UK4r9ct82br6Fh4RvP2AvrclO7C7_1Wvgg1vgSstJO4
 @sam_notadmin= eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NjY4ODkxOTF9.wCLQhRk8rBNW8uP1dWz-q7yNIphjvP0aZv3ZQQ3gr3E
 
 get http://localhost:3000/books.json
@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ###
-get http://localhost:3000/books/2.json
+get http://localhost:3000/books/7.json
 
 ###
 # Create Books Post for Admin
@@ -18,10 +18,11 @@ Authorization: Bearer {{Nick_Admin}}
 Content-Type: application/json
 
 {
-  "title": "Lost at Sea",
+  "title": "Alice in Wonderland",
   "stock": 100,
   "author_id": 1,
-  "available": 100
+  "available": 100,
+  "category": "Fiction"
 }
 
 ###
@@ -75,10 +76,10 @@ Content-Type: application/json
 ### show books in cart. uses body params - cart?, rented?, or previous?
 get http://localhost:3000/rented_books.json
 Content-Type: application/json
-Authorization: Bearer 
+Authorization: Bearer {{Nick_Admin}}
 
 {
-  "book_id": 1,
+  "book_id": 1, 
   "cart?": true
 }
 
@@ -87,12 +88,13 @@ DELETE http://localhost:3000/rented_books/1.json
 Authorization: Bearer 
 
 ###
+# Add books to cart
 post http://localhost:3000/rented_books.json
 Content-Type: application/json
-Authorization: Bearer 
+Authorization: Bearer {{Nick_Admin}}
 
 {
-  "book_id": 1
+  "book_id": 3
 }
 
 ###

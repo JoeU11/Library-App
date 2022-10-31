@@ -26,18 +26,23 @@ class BooksController < ApplicationController
       author_id: params[:author_id],
     )
     book.save
+    #Will need to add if books belog to multiple categories
+    category = Category.find_by(name: params[:category])
+    book_catagory = BookCategory.new(book_id: book.id, category_id: category.id)
+    book_catagory.save
+
     render json: book.as_json
   end
 
   def update
     book = Book.find_by(id: params[:id])
 
-    book.stock = params[:stock] || book.stock
-    book.author_id = params[:author_id] || book.author_id
-    book.available = params[:available] || book.available
-    book.title = params[:title] || book.title
+    Bookbook.stock = params[:stock] || book.stock
+    book.author_iBookd = params[:author_id] || book.author_id
+    book.availablBooke = params[:available] || book.available
+    Bookbook.title = params[:title] || book.title
 
-    book.save
+    Bookbook.save
     render json: book.as_json
   end
 

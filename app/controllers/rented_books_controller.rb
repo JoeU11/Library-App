@@ -1,7 +1,7 @@
 class RentedBooksController < ApplicationController
-  # This controller will serve as a 'cart'  as well as a catalogue of currently rented books. Index method is gonna be wild. 
+  # This controller will serve as a 'cart'  as well as a catalogue of currently rented books. Index method is gonna be wild.
   before_action :authenticate_user
-  
+
   def index
     books = Array.new
     if params[:cart?]
@@ -32,7 +32,7 @@ class RentedBooksController < ApplicationController
     if current_user.id == rented_book.user_id && rented_book.status == "carted"
       rented_book.status = "removed"
       rented_book.save
-      render json: {message: "This book has been removed from your cart"}
+      render json: { message: "This book has been removed from your cart" }
     else
       render json: {}, status: :unauthorized
     end
@@ -43,12 +43,13 @@ class RentedBooksController < ApplicationController
     book = Book.find_by(id: params[:book_id])
     duplicate = false
     cart.each do |carted_book|
+      p carted_book.book
       if carted_book.book.title == book.title && carted_book.status == "carted"
         duplicate = true
       end
     end
     if duplicate
-      render json: {message: "You may only have one copy of a book in your cart at a time"}, status: :unauthorized
+      render json: { message: "You may only have one copy of a book in your cart at a time" }, status: :unauthorized
     else
       rented_book = RentedBook.new(user_id: current_user.id, book_id: params[:book_id], status: "carted")
       rented_book.save
