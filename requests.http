@@ -18,32 +18,33 @@ Authorization: Bearer {{Nick_Admin}}
 Content-Type: application/json
 
 {
-  "title": "Alice in Wonderland",
+  "title": "Circus",
   "stock": 100,
   "author_id": 1,
   "available": 100,
-  "category": "Fiction"
+  "categories": ["Fiction", "Fantasy"]
 }
 
 ###
 #Books Update for Admins
 PATCH http://localhost:3000/books/3.json
-Authorization: Bearer {{sam_notadmin}}
+Authorization: Bearer {{Nick_Admin}}
 Content-Type: application/json
 
 {
   "stock": 100,
   "author_id": 1,
   "available": 3,
-  "title": "A Good Man is Hard To Find"
+  "title": "Alice in Wonderland",
+  "categories":["Fiction", "Fantasy"]
+
 }
 
 
 ###
 #Delete for Admins
-DELETE http://localhost:3000/books/5.json
+DELETE http://localhost:3000/books/13.json
 Authorization: Bearer {{Nick_Admin}}
-
 
 
 
