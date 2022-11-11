@@ -21,4 +21,6 @@ Rails.application.routes.draw do
   delete "/rented_books/:id" => "rented_books#destroy"
 
   post "/rented_books" => "rented_books#create"
+
+  post "/rentals" => "rentals#create"
 end
