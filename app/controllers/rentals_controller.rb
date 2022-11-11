@@ -33,12 +33,12 @@ class RentalsController < ApplicationController
         end
         render json: rental.as_json
       elsif !all_available && !already_rented
-        render json: { message: "Sorry, one of the books you have selected has no currently available copies" }, status: :unauthorized
+        render json: { message: "Sorry, one of the books you have selected has no currently available copies" }, status: :conflict
       else
-        render json: { message: "You may only rent one copy of a book at a time" }, status: :unauthorized
+        render json: { message: "You may only rent one copy of a book at a time" }, status: :bad_request
       end
     else
-      render json: { message: "You may only rent up to three books at a time" }, status: :unauthorized
+      render json: { message: "You may only rent up to three books at a time" }, status: :bad_request
     end
   end
 end
