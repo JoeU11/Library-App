@@ -1,4 +1,4 @@
-@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjY4MDQ4Njl9.wy0-6W11Fb02bj8LDd1zcZ1Pkbu3FTk526jiBXTMAWI
+@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjgyNTk5NTJ9.ycnYOvpv4ujItv3b7JUL7W1yHQ6TpzmLSA0iOEtoILU
 
 get http://localhost:3000/books.json
 Content-Type: application/json
@@ -42,7 +42,7 @@ Content-Type: application/json
 Authorization: Bearer {{user}}
 
 {
-  "rented?": true
+  "cart?": true
 }
 
 ###
