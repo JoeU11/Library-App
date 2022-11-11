@@ -13,7 +13,7 @@ get http://localhost:3000/books/7.json
 ###
 # Create Books Post for Admin
 post http://localhost:3000/books.json
-Authorization: Bearer {{Nick_Admin}}
+Authorization: Bearer {{user}}
 Content-Type: application/json
 
 {
@@ -27,7 +27,7 @@ Content-Type: application/json
 ###
 #Books Update for Admins
 PATCH http://localhost:3000/books/3.json
-Authorization: Bearer {{Nick_Admin}}
+Authorization: Bearer {{user}}
 Content-Type: application/json
 
 {
@@ -43,7 +43,7 @@ Content-Type: application/json
 ###
 #Delete for Admins
 DELETE http://localhost:3000/books/13.json
-Authorization: Bearer {{Nick_Admin}}
+Authorization: Bearer {{user}}
 
 
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 ### show books in cart. uses body params - cart, rented, or previous
 get http://localhost:3000/rented_books.json
 Content-Type: application/json
-Authorization: Bearer {{Nick_Admin}}
+Authorization: Bearer {{user}}
 
 {
   "cart": true
@@ -90,7 +90,7 @@ Authorization: Bearer
 # Add books to cart
 post http://localhost:3000/rented_books.json
 Content-Type: application/json
-Authorization: Bearer {{Nick_Admin}}
+Authorization: Bearer {{user}}
 
 {
   "book_id": 3
