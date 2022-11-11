@@ -1,6 +1,7 @@
-@cart.map do |rented_book|
+@books.map do |rented_book|
   {
     id: rented_book.id,
-    book: rented_book.book
+    book: rented_book.book,
+    due_date: rented_book.due_date
   }
 end
