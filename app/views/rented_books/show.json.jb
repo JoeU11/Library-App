@@ -1,0 +1,6 @@
+{
+  id: @rented_book.id,
+  book: @rented_book.book,
+  created_at: @rented_book.created_at,
+  updated_at: @rented_book.updated_at
+}

@@ -1,5 +1,4 @@
-@Nick_Admin= eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NjczMTk2NjZ9.UK4r9ct82br6Fh4RvP2AvrclO7C7_1Wvgg1vgSstJO4
-@sam_notadmin= eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NjY4ODkxOTF9.wCLQhRk8rBNW8uP1dWz-q7yNIphjvP0aZv3ZQQ3gr3E
+@user = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NjgyNTk5NTJ9.ycnYOvpv4ujItv3b7JUL7W1yHQ6TpzmLSA0iOEtoILU
 
 get http://localhost:3000/books.json
 Content-Type: application/json
@@ -14,7 +13,7 @@ get http://localhost:3000/books/7.json
 ###
 # Create Books Post for Admin
 post http://localhost:3000/books.json
-Authorization: Bearer {{Nick_Admin}}
+Authorization: Bearer {{user}}
 Content-Type: application/json
 
 {
@@ -28,7 +27,7 @@ Content-Type: application/json
 ###
 #Books Update for Admins
 PATCH http://localhost:3000/books/3.json
-Authorization: Bearer {{Nick_Admin}}
+Authorization: Bearer {{user}}
 Content-Type: application/json
 
 {
@@ -44,7 +43,7 @@ Content-Type: application/json
 ###
 #Delete for Admins
 DELETE http://localhost:3000/books/13.json
-Authorization: Bearer {{Nick_Admin}}
+Authorization: Bearer {{user}}
 
 
 
@@ -74,14 +73,13 @@ Content-Type: application/json
   "password":"password"
 }
 
-### show books in cart. uses body params - cart?, rented?, or previous?
+### show books in cart. uses body params - cart, rented, or previous
 get http://localhost:3000/rented_books.json
 Content-Type: application/json
-Authorization: Bearer {{Nick_Admin}}
+Authorization: Bearer {{user}}
 
 {
-  "book_id": 1, 
-  "cart?": true
+  "cart": true
 }
 
 ###
@@ -92,7 +90,7 @@ Authorization: Bearer
 # Add books to cart
 post http://localhost:3000/rented_books.json
 Content-Type: application/json
-Authorization: Bearer {{Nick_Admin}}
+Authorization: Bearer {{user}}
 
 {
   "book_id": 3

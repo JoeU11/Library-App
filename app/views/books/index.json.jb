@@ -5,6 +5,6 @@
     author: book.author,
     categories: book.categories,
     available: book.available,
-    categories: book.categories, # add number availale to rent later
+    categories: book.categories 
   }
 end

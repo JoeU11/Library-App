@@ -1,0 +1,6 @@
+@cart.map do |rented_book|
+  {
+    id: rented_book.id,
+    book: rented_book.book
+  }
+end
