@@ -22,4 +22,10 @@ class ApplicationController < ActionController::API
       render json: {}, status: :unauthorized
     end
   end
+
+  def authenticate_admin
+    unless current_user && current_user.authority
+      render json: { message: "You do not have permission to make edits" }, status: :unauthorized
+    end
+  end
 end

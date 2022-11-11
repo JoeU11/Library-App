@@ -3,6 +3,7 @@
     id: book.id,
     title: book.title,
     author: book.author,
+    categories: book.categories,
     available: book.available,
     categories: book.categories 
   }

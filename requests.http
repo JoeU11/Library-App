@@ -4,11 +4,48 @@ get http://localhost:3000/books.json
 Content-Type: application/json
 
 {
-  "category": "Fantasy"
+  
 }
 
 ###
-get http://localhost:3000/books/3.json
+get http://localhost:3000/books/7.json
+
+###
+# Create Books Post for Admin
+post http://localhost:3000/books.json
+Authorization: Bearer {{Nick_Admin}}
+Content-Type: application/json
+
+{
+  "title": "Circus",
+  "stock": 100,
+  "author_id": 1,
+  "available": 100,
+  "categories": ["Fiction", "Fantasy"]
+}
+
+###
+#Books Update for Admins
+PATCH http://localhost:3000/books/3.json
+Authorization: Bearer {{Nick_Admin}}
+Content-Type: application/json
+
+{
+  "stock": 100,
+  "author_id": 1,
+  "available": 3,
+  "title": "Alice in Wonderland",
+  "categories":["Fiction", "Fantasy"]
+
+}
+
+
+###
+#Delete for Admins
+DELETE http://localhost:3000/books/13.json
+Authorization: Bearer {{Nick_Admin}}
+
+
 
 
 ###
@@ -20,10 +57,10 @@ post http://localhost:3000/users.json
 Content-Type: application/json
 
 {
-  "name": "Nick Williams",
-  "email": "nick@nick.com",
+  "name": "Sam",
+  "email": "sam@sam.com",
   "password": "password",
-  "authority": 0
+  "authority": false
 }
 
 
@@ -32,27 +69,28 @@ post http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "john@john.com",
-  "password": "password"
+  "email": "nick@nick.com",
+  "password":"password"
 }
 
-### show books in cart. uses body params - cart?, rented?, or previous?
+### show books in cart. uses body params - cart, rented, or previous
 get http://localhost:3000/rented_books.json
 Content-Type: application/json
-Authorization: Bearer {{user}}
+Authorization: Bearer {{Nick_Admin}}
 
 {
-  "cart?": true
+  "cart": true
 }
 
 ###
 DELETE http://localhost:3000/rented_books/1.json
-Authorization: Bearer {{user}}
+Authorization: Bearer 
 
 ###
+# Add books to cart
 post http://localhost:3000/rented_books.json
 Content-Type: application/json
-Authorization: Bearer {{user}}
+Authorization: Bearer {{Nick_Admin}}
 
 {
   "book_id": 3
@@ -60,9 +98,10 @@ Authorization: Bearer {{user}}
 
 ###
 post http://localhost:3000/rentals.json
-Authorization: Bearer {{user}}
-
+Authorization: Bearer 
 
 ###
+
+
 
 
